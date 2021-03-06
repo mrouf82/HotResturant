@@ -25,13 +25,14 @@ app.get('/api/waitingList', (req, res) => {
   res.json(waitingList);
 });
 
-app.post('/Tables', (req, res) => {
+app.post('/api/Tables', (req, res) => {
   const reservation = req.body;
-
+  console.log(reservation);
   if (reserve.length < 6) {
     reserve.push(reservation);
   } else {
     waitingList.push(reservation);
+    return res.json(false);
   }
 });
 
