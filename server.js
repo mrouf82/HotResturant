@@ -9,23 +9,23 @@ app.use(express.json());
 let waitingList = [];
 let reserve = [];
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/tables', (req, res) =>
-  res.sendFile(path.join(__dirname, 'tables.html'))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
+app.get('/Tables', (req, res) =>
+  res.sendFile(path.join(__dirname, 'Tables.html'))
 );
-app.get('/reserves', (req, res) =>
-  res.sendFile(path.join(__dirname, 'reserves'))
+app.get('/Reserves', (req, res) =>
+  res.sendFile(path.join(__dirname, 'Reserves'))
 );
 
-app.get('/api/tables', (req, res) => {
+app.get('/api/Tables', (req, res) => {
   res.json(reserve);
 });
 
-app.get('/api/waitinglist', (req, res) => {
+app.get('/api/waitingList', (req, res) => {
   res.json(waitingList);
 });
 
-app.post('/tables', (req, res) => {
+app.post('/Tables', (req, res) => {
   const reservation = req.body;
 
   if (reserve.length < 6) {
